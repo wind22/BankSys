@@ -20,3 +20,6 @@ npm install
 npm start
 ```
 then vist http://localhost:3000
+
+#### Homework Manual
+Suggested IDE : [PhpStorm](https://www.jetbrains.com/phpstorm/)

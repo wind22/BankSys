@@ -1,9 +1,11 @@
-var express = require('express');
+import express from 'express';
 var router = express.Router();
 
-/* GET users listing. */
+
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+    res.render('index', { title: 'Homework' });
 });
+
+
 
 module.exports = router;
