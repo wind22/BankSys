@@ -1,4 +1,4 @@
-# FinancialBankSystem
+# BankSys
 Homework
 
 ## Qucik start
@@ -12,10 +12,11 @@ Homework
 
 ### Clone
 ```
-git clone https://github.com/firstnewline/FinancialBankSystem.git
+git clone https://github.com/firstnewline/BankSys.git
 ```
 ### Start
 ```
+cd BankSys
 npm install 
 npm start
 ```
