@@ -1,4 +1,4 @@
-# BankSystem
+# FinancialBankSystem
 Homework
 
 ## Qucik start
@@ -16,8 +16,7 @@ git clone https://github.com/firstnewline/FinancialBankSystem.git
 ```
 ### Start
 ```
-cd BankSystem
 npm install 
 npm start
 ```
-> http://localhost:3000/
+then visit http://localhost:3000/
