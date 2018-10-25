@@ -4,6 +4,28 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+////////////////////////////
+
+//babel es6
+require('babel-register');
+
+//mongoose
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+
+
+//session
+const session = require("express-session");
+const sessionMiddleware = session({
+    secret: 'finance up up', //key
+    cookie: { maxAge: 60000 }
+});
+app.use(sessionMiddleware);
+
+
+
+
+////////////////////////////
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -11,7 +33,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.engine('.html', require('ejs').__express);
+app.set('view engine', 'html');
 
 app.use(logger('dev'));
 app.use(express.json());
