@@ -6,9 +6,11 @@ Homework
 ### Requirements
 
 [Node.JS](https://nodejs.org/en/)
-MongoDB
+[MongoDB](https://www.mongodb.com/)
 
-clone and then
+### Clone
+
+### Start
 ```
 npm install 
 npm start
