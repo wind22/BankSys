@@ -5,7 +5,7 @@ homework
 
 [Node.js](https://nodejs.org/en/)
 
-[MongoDB](https://www.mongodb.com/)
+Mysql
 
 ### Quick Start
 
