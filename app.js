@@ -13,6 +13,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
+app.use(express.static(path.join(__dirname, 'public')));
+app.use("/public",express.static(path.join(__dirname, 'public')));
+app.use("/node_modules",express.static(path.join(__dirname, 'node_modules')));
 
 // use babel
 require('babel-register');
@@ -31,7 +34,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
