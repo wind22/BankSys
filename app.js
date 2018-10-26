@@ -6,12 +6,7 @@ var logger = require('morgan');
 
 var app = express();
 
-//////////////////////////////////////////////////
-
-//mongoose
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
-
+//////////////////////////////////////////////////////////////////////////
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +25,7 @@ const sessionMiddleware = session({
 app.use(sessionMiddleware);
 
 
-//////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 
 app.use(logger('dev'));
 app.use(express.json());
