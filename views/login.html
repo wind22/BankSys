@@ -27,9 +27,6 @@
 
 </head>
 
-
-
-
 <body class="hold-transition login-page" style="background-color:#B4CFE9">
 <div style="position: absolute;top:40%;left:28%;margin-top:-65px;">
   <div>
@@ -48,6 +45,11 @@
     </form>
   </div>
 </div>
+<!-- 测试向后台请求数据 -->
+<div>
+    <input id="testdata" class="btn btn-default" type="button" value="testdata">  
+    <input id="testbox" type="text" name="testbox" >
+</div>
 
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -64,7 +66,7 @@
     $('input').iCheck({
       checkboxClass: 'icheckbox_square-blue',
       radioClass: 'iradio_square-blue',
-      increaseArea: '20%'
+      increaseArea: '20%' 
     });
   });
 </script>

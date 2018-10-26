@@ -2,14 +2,22 @@ import express from 'express';
 var router = express.Router();
 import {LoginSql} from "../model/sqls/login";
 import pool from '../model/pool';
-
+import async from 'async';
 router.get('/', function(req, res, next) {
 
     res.render('login');
 });
 
-router.post('/',function (req,res,next) {
+router.post('/btn2',function (req,res,next) {
     var data = req.body;
+
+    var json = {
+        user:{
+            type:"客户"
+        },
+        status: true,
+        msj:'登陆失败，账号或密码有错误'
+    };
 
 
     pool.getConnection(function (err,con) {
@@ -24,27 +32,21 @@ router.post('/',function (req,res,next) {
                 successLogin = false;
                 console.log(successLogin);
             }
+            json.status = successLogin;
+            pool.releaseConnection(con);
+            res.json(json).end();
+
         });
-
-        if(successLogin){
-            //check password
-            con.query();
-        }
-        pool.releaseConnection(con);
-        var json = {
-            user:{
-                type:"客户"
-            },
-            status: successLogin,
-            msj:'登陆失败，账号或密码有错误'
-        };
-
-        console.log(json);
-
-        res.json(json).end();
     });
-    //需要返回returnMsg（user：当前登陆用户 status：登陆状态 msj：登陆成功/账号或密码错误 menuJSON：对不同角色生成菜单 ）
+});
 
+router.post('/btn1',function (req,res,next) {
+    var json = {
+
+        attribute:"123"
+
+    };
+   res.json(json).end();
 });
 
 

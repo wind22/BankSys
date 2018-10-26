@@ -1,30 +1,50 @@
 var LOGININGEMPLOYEE = null;
 
 $(document).ready(function() {
-    $("#login").click(function () {
-        $("#login").val("登录中...").attr("disabled", "true");
-        doLogin();
-    });
-    $(document).keyup(function (event) {
-        if (event.keyCode == 13) {
-            var text = $("#login").val();
-            if (text == "登录") {
-                $("#login").val("登录中...").attr("disabled", "true");
+    $("#login").click(function(){
+        $("#login").val("登录中...").attr("disabled","true");
+		doLogin();
+	});
+    $(document).keyup(function(event){
+        if(event.keyCode ==13){
+        	var text=$("#login").val();
+        	if(text=="登录"){
+                $("#login").val("登录中...").attr("disabled","true");
                 doLogin();
-            }
+			}
         }
     });
+
+// 测试向后台请求数据
+    $("#testdata").click(function(){
+        $.ajax({
+            type:'post',
+            url:'/login/btn1',
+            data : {
+            },
+            dataType:'json',
+            success:function(data){
+                console.log("success");
+
+                    $("#testbox").val(data['attribute']);
+
+            },
+            error:function(){
+                $("#testbox").val("fail");
+            }
+        });
+    });
+
 });
 
 function doLogin(){
 	if(!checkAccountIntput($("#loginCellPhone")) || !checkPasswordInput($("#loginPassword"))|| !$.string.isNullOrEmpty($(".alert_span").text())){
         $("#login").val("登录").removeAttr("disabled");
-        alert("1");
         return false;
 	}else{
         $.ajax({
             type : "POST",
-            url : "/login",//todo
+            url : "/login/btn2",//todo
             data : {
                 account :  $("#loginCellPhone").val(), //向后台传输用户名、密码、角色是客户/员工
                 password :  $("#loginPassword").val(),
@@ -113,3 +133,5 @@ function loginFailure(returnMsg){
     $("#failureMsg").empty();
 	$("#failureMsg").append("&nbsp;&nbsp;<span class='alert_span'><font color='red'>"+returnMsg.msg+"</font></span>");
 }
+
+
