@@ -20,14 +20,22 @@ $(document).ready(function() {
         $.ajax({
             type:'post',
             url:'',
+            url:'/login/btn1',
+>>>>>>> 854bea077c345f342ce1944cd485527c6bf4917f
             data : {
             },
             dataType:'json',
             success:function(data){
                 console.log("success");
+<<<<<<< HEAD
                 for(i=0;i<data.length;i++){
                     $("#testbox").val(data[i]['attribute']);
                 }
+=======
+
+                    $("#testbox").val(data['attribute']);
+
+>>>>>>> 854bea077c345f342ce1944cd485527c6bf4917f
             },
             error:function(){
                 $("#testbox").val("fail");
@@ -44,7 +52,11 @@ function doLogin(){
 	}else{
         $.ajax({
             type : "POST",
+<<<<<<< HEAD
             url : getContextPath() +"",//todo
+=======
+            url : "/login/btn2",//todo
+>>>>>>> 854bea077c345f342ce1944cd485527c6bf4917f
             data : {
                 account :  $("#loginCellPhone").val(), //向后台传输用户名、密码、角色是客户/员工
                 password :  $("#loginPassword").val(),
@@ -134,4 +146,8 @@ function loginFailure(returnMsg){
 	$("#failureMsg").append("&nbsp;&nbsp;<span class='alert_span'><font color='red'>"+returnMsg.msg+"</font></span>");
 }
 
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 854bea077c345f342ce1944cd485527c6bf4917f
