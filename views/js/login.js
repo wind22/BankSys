@@ -1,30 +1,50 @@
 var LOGININGEMPLOYEE = null;
 
 $(document).ready(function() {
-    $("#login").click(function () {
-        $("#login").val("登录中...").attr("disabled", "true");
-        doLogin();
-    });
-    $(document).keyup(function (event) {
-        if (event.keyCode == 13) {
-            var text = $("#login").val();
-            if (text == "登录") {
-                $("#login").val("登录中...").attr("disabled", "true");
+    $("#login").click(function(){
+        $("#login").val("登录中...").attr("disabled","true");
+		doLogin();
+	});
+    $(document).keyup(function(event){
+        if(event.keyCode ==13){
+        	var text=$("#login").val();
+        	if(text=="登录"){
+                $("#login").val("登录中...").attr("disabled","true");
                 doLogin();
-            }
+			}
         }
     });
+
+// 测试向后台请求数据
+    $("#testdata").click(function(){
+        $.ajax({
+            type:'post',
+            url:'',
+            data : {
+            },
+            dataType:'json',
+            success:function(data){
+                console.log("success");
+                for(i=0;i<data.length;i++){
+                    $("#testbox").val(data[i]['attribute']);
+                }
+            },
+            error:function(){
+                $("#testbox").val("fail");
+            }
+        });
+    });
+
 });
 
 function doLogin(){
 	if(!checkAccountIntput($("#loginCellPhone")) || !checkPasswordInput($("#loginPassword"))|| !$.string.isNullOrEmpty($(".alert_span").text())){
         $("#login").val("登录").removeAttr("disabled");
-        alert("1");
         return false;
 	}else{
         $.ajax({
             type : "POST",
-            url : "/login",//todo
+            url : getContextPath() +"",//todo
             data : {
                 account :  $("#loginCellPhone").val(), //向后台传输用户名、密码、角色是客户/员工
                 password :  $("#loginPassword").val(),
@@ -81,12 +101,12 @@ function checkPasswordInput(input) {
     return true;
 
 }
-
+	
 function loginSuccess(returnMsg){
     $("#login").val("登录").removeAttr("disabled");
 	if("客户" == returnMsg.user.type){
 		localStorage.menu = JSON.stringify(returnMsg.menuJSON);
-
+        
 		delete returnMsg.menuJSON ;
 
         $.cookie('loginingGuest',JSON.stringify(returnMsg));
@@ -94,10 +114,10 @@ function loginSuccess(returnMsg){
 		console.log("cookie:"+JSON.stringify(loginCookie));
 		window.location.href = "index.html";//登陆成功进入客户主页面
 		return ;
-	}
+	}	
 	if("员工" == returnMsg.user.type){
 		localStorage.menu = JSON.stringify(returnMsg.menuJSON);
-
+        
 		delete returnMsg.menuJSON ;
 
         $.cookie('loginingEmployee',JSON.stringify(returnMsg));
@@ -105,7 +125,7 @@ function loginSuccess(returnMsg){
 		console.log("cookie:"+JSON.stringify(loginCookie));
 		window.location.href = "index.html";//登陆成功进入员工主页面
 		return ;
-	}
+	}	
 }
 
 function loginFailure(returnMsg){
@@ -113,3 +133,5 @@ function loginFailure(returnMsg){
     $("#failureMsg").empty();
 	$("#failureMsg").append("&nbsp;&nbsp;<span class='alert_span'><font color='red'>"+returnMsg.msg+"</font></span>");
 }
+
+ 
