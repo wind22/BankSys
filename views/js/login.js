@@ -19,7 +19,9 @@ $(document).ready(function() {
     $("#testdata").click(function(){
         $.ajax({
             type:'post',
+<<<<<<< HEAD
             url:'',
+=======
             url:'/login/btn1',
 >>>>>>> 854bea077c345f342ce1944cd485527c6bf4917f
             data : {
