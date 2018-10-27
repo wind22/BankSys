@@ -3,7 +3,11 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-    res.render('index');
+    res.render('customer');
+});
+
+router.get('/test',function (req,res,next) {
+    res.sendFile(appRoot+'/views/testejs.html');
 });
 
 
