@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>银行业务系统</title>
+  <!--设置网页在浏览器tab选项卡上的图标-->
+  <link rel="shortcut icon" href="dist/img/logo.png" type="image/x-icon">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->  
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <!-- <link rel="stylesheet" href="dist/css/AdminLTE.min.css"> -->
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
+
+  <style>
+    html,body{
+      overflow-y: hidden;
+    }
+  </style>
+
+</head>
+
+<body class="hold-transition login-page" style="background-color:#B4CFE9">
+<div style="position: absolute;top:40%;left:28%;margin-top:-65px;">
+  <div>
+    <img src="dist/img/title.png" style="position: relative;">
+  </div>
+  <div style="margin-left: 135px;margin-top: 35px">
+    <form style="position: relative;" id="loginForm">
+        <select type="text" class="form-control" id="loginRole" name="loginRole" placeholder="用户类别" style="width:154px;display: inline-block;border-radius: 5px;margin-right: 8px;">
+          <option value="1">客户</option>
+          <option value="2">员工</option>
+        </select>
+        <input type="text" class="form-control" id="loginCellPhone" name="loginCellPhone" placeholder="用户名" style="width:154px;display: inline-block;border-radius: 5px;margin-right: 8px;">
+        <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="密码" style="width:154px;display: inline-block;border-radius: 5px;margin-right: 8px;">
+        <input id="login" class="btn btn-default" type="button" value="登录" style="width:87px;background-color:#E6E6FA;border-color: transparent;color:black;position: relative;top: -2px;border-radius: 5px;"/>
+        <div id="failureMsg" style="margin-left: 160px;"></div>
+    </form>
+  </div>
+</div>
+<!-- 测试向后台请求数据 -->
+<div>
+    <input id="testdata" class="btn btn-default" type="button" value="testdata">  
+    <input id="testbox" type="text" name="testbox" >
+</div>
+
+<!-- jQuery 2.2.3 -->
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="plugins/jQuery/jquery.cookie.js"></script>
+<script src="plugins/jQuery/jquery.jdirk.js" type="text/javascript" charset="utf-8"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="plugins/iCheck/icheck.min.js"></script>
+<script type="text/javascript" src="js/login.js" charset="utf-8"></script>
+
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' 
+    });
+  });
+</script>
+</body>
+</html>

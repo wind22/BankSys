@@ -4,7 +4,9 @@ export class LoginSql {
     }
 
     static isUserExist(username){
-        return 'SELECT * FROM user WHERE name = '+username;
+
+        return 'SELECT 1 FROM reglogin WHERE UserID = \''+username+'\'LIMIT 1';
+
     }
 	static isPwd
 }

@@ -14,7 +14,7 @@ app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use("/public",express.static(path.join(__dirname, 'public')));
+app.use("/views",express.static(path.join(__dirname, 'views')));
 app.use("/node_modules",express.static(path.join(__dirname, 'node_modules')));
 
 // use babel
@@ -27,7 +27,8 @@ const sessionMiddleware = session({
 });
 app.use(sessionMiddleware);
 
-
+var path = require('path');
+global.appRoot = path.resolve(__dirname);
 //////////////////////////////////////////////////////////////////////////
 
 app.use(logger('dev'));

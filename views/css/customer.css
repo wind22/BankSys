@@ -1,0 +1,17 @@
+.top{
+    height: 90px;
+    /* background:cornflowerblue; */
+}
+
+.leftNav{
+    /* background: cornflowerblue; */
+    margin: 30px;
+}
+
+.topNav{
+    margin-top: 30px;
+}
+
+#content{
+    height: 300px;
+}
