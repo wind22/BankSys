@@ -1,4 +1,4 @@
-class TransactionSql {
+export class TransactionSql {
     constructor(){
 
     }

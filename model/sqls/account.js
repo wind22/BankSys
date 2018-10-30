@@ -1,4 +1,4 @@
-class AccountSql {
+export class AccountSql {
     constructor(){
 
     }

@@ -1,5 +1,5 @@
 /*为各类界面展示提供查询sql语句*/
-class querySql {
+export class querySql {
     constructor(){
 
     }

@@ -1,17 +1,4 @@
-/*
-Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
-Source Server Version : 50719
-Source Host           : localhost:3306
-Source Database       : bank
-
-Target Server Type    : MYSQL
-Target Server Version : 50719
-File Encoding         : 65001
-
-Date: 2018-10-27 21:05:57
-*/
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -34,9 +21,7 @@ CREATE TABLE `account` (
 -- ----------------------------
 -- Records of account
 -- ----------------------------
-INSERT INTO `account` VALUES ('2', '1234', '1996-11-23', 'sdfasdf', '4666.00', '1');
-INSERT INTO `account` VALUES ('3', '9999', '2018-10-11', '123456', '500.00', '1');
-INSERT INTO `account` VALUES ('4', '1234', '2018-10-17', '12345', '799.00', '1');
+
 
 -- ----------------------------
 -- Table structure for `bankdraft`
@@ -45,22 +30,25 @@ DROP TABLE IF EXISTS `bankdraft`;
 CREATE TABLE `bankdraft` (
   `BankDraftID` bigint(11) NOT NULL AUTO_INCREMENT,
   `AccountNoFrom` bigint(11) NOT NULL,
+  `FromName` varchar(8) NOT NULL,
   `AccountNoTo` bigint(11) NOT NULL,
+  `ToName` varchar(8) NOT NULL,
   `Date` date NOT NULL,
   `Deadline` date NOT NULL COMMENT '汇票最迟兑现时间',
   `Amount` double(11,2) NOT NULL,
-  `Status` enum('3','2','1') NOT NULL COMMENT '1:已承兑，2：已兑现，3：已还清',
+  `Status` enum('3','2','0','1') DEFAULT '0' COMMENT '1:已承兑，2：已兑现，3：已还清 0: 未承兑 未兑现 未还清',
   `Description` tinytext,
   PRIMARY KEY (`BankDraftID`),
   KEY `AccountNoFrom` (`AccountNoFrom`),
   KEY `AccountNoTo` (`AccountNoTo`),
   CONSTRAINT `bankdraft_ibfk_1` FOREIGN KEY (`AccountNoFrom`) REFERENCES `account` (`AccountNo`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `bankdraft_ibfk_2` FOREIGN KEY (`AccountNoTo`) REFERENCES `account` (`AccountNo`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bankdraft
 -- ----------------------------
+
 
 -- ----------------------------
 -- Table structure for `customer`
@@ -124,11 +112,12 @@ CREATE TABLE `loan` (
   PRIMARY KEY (`LoanID`),
   KEY `AccountNo` (`AccountNo`),
   CONSTRAINT `loan_ibfk_1` FOREIGN KEY (`AccountNo`) REFERENCES `account` (`AccountNo`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of loan
 -- ----------------------------
+
 
 -- ----------------------------
 -- Table structure for `transaction_save`

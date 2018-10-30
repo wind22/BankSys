@@ -1,5 +1,5 @@
 /*为user employee customer表插入提供sql语句*/
-class insertInfoSql{
+export class insertInfoSql{
 	constructor(){
 
     }
