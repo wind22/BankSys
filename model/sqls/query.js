@@ -4,13 +4,13 @@ export class querySql {
 
     }
 	static userInfo(userID){
-		return "select * from user where userID="+userID;
+		return "select * from user where userID="+userID+";";
 	}
 	static employeeInfo(employeeID){
-		return "select * from employee where employeeID='"+employeeID+"'";
+		return "select * from employee where employeeID='"+employeeID+"';";
 	}
 	static customerInfo(custID){
-		return "select * from customer where custID='"+custID+"'";
+		return "select * from customer where custID='"+custID+"';";
 	}
 /*
 console.log(querySql.userInfo(4));

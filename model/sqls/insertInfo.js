@@ -5,15 +5,15 @@ export class insertInfoSql{
     }
 	static insertUser(name,pwd,type){
 		return "INSERT INTO user(name,password,type) VALUES ('"+
-		name+"' ,'"+pwd+"', '"+type+"')";
+		name+"' ,'"+pwd+"', '"+type+"');";
 	}
 	static insertEmployee(employeeID,userID,name,gender,job){
 		return "INSERT INTO employee(employeeID,userID,name,gender,job) VALUES ('"+
-		employeeID+"' ,"+userID+", '"+name+"', '"+gender+"', '"+job+"')";
+		employeeID+"' ,"+userID+", '"+name+"', '"+gender+"', '"+job+"');";
 	}
 	static insertCustomer(custID,userID,name,gender,address,phoneNumber){
 		return "INSERT INTO customer(custID,userID,name,gender,address,phoneNumber) VALUES ('"+
-		custID+"' ,"+userID+", '"+name+"', '"+gender+"', '"+address+"', '"+phoneNumber+"')";
+		custID+"' ,"+userID+", '"+name+"', '"+gender+"', '"+address+"', '"+phoneNumber+"');";
 	}
 }
 /*
