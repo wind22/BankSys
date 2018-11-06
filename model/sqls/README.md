@@ -13,3 +13,7 @@ sqls cataloged by scenes
 
 **6.如果有需要定制的取数请及时沟通，我进行添加修改**
 
+**7.转账事务语句请调用transferAffair.js中的transferAffairSql.transfer(AccountNoFrom,AccountNoTo,date,Amount,Description)**
+
+
+
